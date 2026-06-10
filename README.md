@@ -2,7 +2,7 @@
 
 A web-based book recommendation system built with Flask that helps readers discover their next great read. Browse the top 50 most popular books or get personalised recommendations based on a book you already love — powered by collaborative filtering.
 
-🔗 **Live Demo:** [Inkspire - Book Recommendation System](https://book-recommendation-system-gs44.onrender.com/)]
+🔗 **Live Demo:** [Inkspire - Book Recommendation System](https://book-recommendation-system-gs44.onrender.com/)
 
 ---
 

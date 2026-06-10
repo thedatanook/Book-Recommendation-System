@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkspire — Recommendations</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel = "stylesheet" href = "https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel = "stylesheet" href = "static/style.css">
+  <link rel="icon" href="{{ url_for('static', filename='Logo.svg') }}" type="image/svg">
+</head>
+<body>
+
+  <header>
+    <a href="/" class="logo" style="font-weight: bold; font-size: 30px; text-decoration: none;">Inkspire</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/recommend">Recommendation</a></li>
+      </ul>
+  </header>
+  
+  <section class="hero hero-search">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Discover something new</p>
+    <h1 class="hero-title">Your Next<br><span>Chapter.</span></h1>
+    <p class="hero-sub">Type in a book you love and we'll find you something just as good — or better.</p>
+  </div>
+  </section>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form action="/recommend_books" method="POST">
+              <div class="search-containter">
+                <input name = "user_input" type="text" placeholder="Search a book title..." value = "{{ user_input }}">
+                <i class="fa fa-search"></i>
+              </div>
+            </form>
+        </div>
+        
+        {% if data %}
+          {% for i in data %}
+            <div class="col-md-3 d-flex">
+              <div class = 'card custom-card'>
+                <div class="card-image">
+                  <img src="{{i[2]}}" alt="Book cover">
+                </div>
+                <div class="card-content">
+                  <p class="book-title">{{i[0]}}</p>
+                  <!-- author -->
+                  <p>{{i[1]}}</p>
+
+                  <!-- Star Rating -->
+                  <p>
+                    {{ i[3] }}
+                    <span class="star-vote text-warning">
+                      {% set r = i[3]|float %}
+                      {% for j in range(1, 6) %}
+                        {% if r >= j %}
+                          <i class="fas fa-star"></i>
+                        {% elif r >= j - 0.75 %}
+                          <i class="fas fa-star-half-alt"></i>
+                        {% else %}
+                          <i class="far fa-star"></i>
+                        {% endif %}
+                      {% endfor %}
+                    </span>
+                  </p>
+                  
+
+                </div>
+              </div>
+            </div>
+          {% endfor%}
+        {% endif %}
+
+    </div>
+  </div>
+  
+  <script type = "text/javascript">
+    window.addEventListener("scroll", function() {
+        var header = document.querySelector("header");
+        header.classList.toggle("sticky", window.scrollY > 0);
+    })
+
+</script>
+</body>
+
+<footer>
+  <p>© 2026 Inkspire &middot; Built with Flask</p>
+</footer>
+
+</html>

@@ -88,7 +88,7 @@ BOOK RECOMMENDATION SYSTEM/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/karlyndiary/Book-Recommendation-System
+   git clone https://github.com/thedatanook/Book-Recommendation-System
    cd Book-Recommendation-System
    ```
 

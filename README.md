@@ -88,8 +88,8 @@ BOOK RECOMMENDATION SYSTEM/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/inkspire.git
-   cd inkspire
+   git clone https://github.com/karlyndiary/Book-Recommendation-System
+   cd Book-Recommendation-System
    ```
 
 2. **Install dependencies**
@@ -108,7 +108,7 @@ BOOK RECOMMENDATION SYSTEM/
 
 ## Dataset
 
-This project uses the [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset) which contains:
+This project uses the [Book Recommendation Dataset](https://www.kaggle.com/datasets/arashnic/book-recommendation-dataset), which contains:
 
 | File | Description |
 |---|---|
